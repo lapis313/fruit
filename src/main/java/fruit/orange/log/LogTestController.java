@@ -5,10 +5,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 public class LogTestController {
 
-	private final Logger log = LoggerFactory.getLogger(getClass());
+	//private final Logger log = LoggerFactory.getLogger(getClass());	//@Slf4j(어노테이션으로 대체함)
 	
 	@RequestMapping("/log-test")
 	public String logTest() {
@@ -26,3 +29,10 @@ public class LogTestController {
 	}
 	
 }
+/*로그 정보
+SLF4J - http://www.slf4j.org
+Logback - http://logback.qos.ch
+
+스프링부트 로그 설정 참고
+https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.logging
+*/
