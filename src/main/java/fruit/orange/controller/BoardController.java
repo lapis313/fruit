@@ -12,7 +12,8 @@ import fruit.orange.vo.BoardVO;
 
 @Controller
 @RequestMapping("/board")
-public class BoardController {	
+public class BoardController {
+	/**
     @Autowired
     private BoardService boardService;
 
@@ -21,6 +22,7 @@ public class BoardController {
         List<BoardVO> boardList =  boardService.getBoardList();
         model.addAttribute("boardList", boardList);
         return "views/board/board"; // board.html 파일 경로매핑
-    }    
+    }
+    */    
 }
 //참고 -> https://dbjh.tistory.com/11

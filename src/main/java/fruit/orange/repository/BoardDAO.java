@@ -9,6 +9,7 @@ import fruit.orange.vo.BoardVO;
 
 @Repository
 public class BoardDAO {
+	/*
     @Autowired
     private SqlSession sqlSession;
 
@@ -18,4 +19,5 @@ public class BoardDAO {
 
         return boardList;
     }
+    */
 }
