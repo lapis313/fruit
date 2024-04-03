@@ -5,9 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fruit.orange.vo.BoardVO;
+
 @Repository
 public class BoardDAO {
-	/*
     @Autowired
     private SqlSession sqlSession;
 
@@ -17,5 +18,4 @@ public class BoardDAO {
 
         return boardList;
     }
-    */
 }
