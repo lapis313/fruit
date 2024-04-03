@@ -31,18 +31,23 @@ dependencies {
 
     //log
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
-    // lombok
+    
+    //lombok
 	compileOnly 'org.projectlombok:lombok'
-	//postgresql 설정
+	
+	//PostgreSQL 드라이버 추가
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.2.4'
+	//testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.2.0'
+	
 	// mybatis
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.2.4'
+	//implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
 	
-	// 로컬PC의 postgresql 추가
-    compile group: 'org.postgresql', name: 'postgresql', version: '16.2'
-    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '3.2.4'
+	// 로컬PC의 PostgresSQL 추가
+    //compile group: 'org.postgresql', name: 'postgresql', version: '16.2'
+    //compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '3.2.4'
 }
 
 tasks.named('test') {
