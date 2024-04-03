@@ -8,12 +8,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor	//파라미터가 없는 기본 생성자를 생성해준다.
 @AllArgsConstructor	//모든 필드에 대한 생성자를 생성한다. 의존성 주입 할 대상이 많아졌을 때 훨씬 깔끔하다
 public class BoardVO {
-
-    private int seq;
-    private String id;
-    private String name;
-    private int age;
-    private String sexCd;
-    private String createDate;
-    private String updateDate;
+    private Long no;
+    private String title;
+    private String contents;    
+    private String regName;
+    private String regDate;
+    private int hit;
+    private int groupNo;
+    private int orderNo;
+    private int depth;
+    private Long parentNo;
+    private Long userNo;  
 }

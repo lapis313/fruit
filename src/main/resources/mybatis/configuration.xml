@@ -9,4 +9,4 @@
 		 <mapper resource="mybatis/mapper/board.xml" />
 	</mappers>
 </configuration>
--->
+ -->
