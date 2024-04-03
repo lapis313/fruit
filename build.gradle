@@ -37,9 +37,13 @@ dependencies {
 	//postgresql 설정
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.2.4'
 	// mybatis
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'		
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.2.4'
+	
+	// 로컬PC의 postgresql 추가
+    compile group: 'org.postgresql', name: 'postgresql', version: '16.2'
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '3.2.4'
 }
 
 tasks.named('test') {
