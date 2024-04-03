@@ -1,0 +1,9 @@
+main {
+  background: #f2f4f7;
+  min-height: 524px;
+}
+.center {
+ margin: 0 auto;
+ width: 59%;
+ display: block;
+}

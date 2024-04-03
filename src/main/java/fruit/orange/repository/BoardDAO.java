@@ -10,6 +10,11 @@ import fruit.orange.vo.BoardVO;
 @Repository
 public class BoardDAO {
     public List<BoardVO> selectBoardList() {
+    	/*
+        List<BoardVO> boardList = sqlSession.selectList("board.getBoardList");
+        return boardList;
+        */    	
+    	
         BoardVO board =  new BoardVO();
         board.setNo(1L);
         board.setTitle("게시판입니다.");
@@ -21,5 +26,6 @@ public class BoardDAO {
         List<BoardVO> boardList = new ArrayList<>();
         boardList.add(board);
         return boardList;
+        
     }
 }
