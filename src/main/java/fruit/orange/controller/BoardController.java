@@ -20,7 +20,7 @@ public class BoardController {
     public String getBoardList(Model model){
         List<BoardVO> boardList =  boardService.getBoardList();
         model.addAttribute("boardList", boardList);
-        return "views/board/board"; // board.html 파일 경로매핑
+        return "view/board"; // board.html 파일 경로매핑
     }
 
 }
