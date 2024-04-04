@@ -1,0 +1,21 @@
+# server port
+server: 
+  port: 8080
+
+# database
+spring:
+ application:
+  name: Spring-Boot-MyBatis
+ datasource:
+  driver-class-name: org.postgresql.Driver
+  url: jdbc:postgresql://{database-1.cx2420syi3rd.ap-northeast-2.rds.amazonaws.com}:5432/postgres
+  username: orange
+  password: orange123
+
+# mybatis
+mybatis: 
+ mapper-locations: classpath:mapper/*.xml #지정한 경로 내 xml 파일을 mapper xml로 인식  
+ config-location: classpath:mybatis-config.xml
+ type-aliases-package: package path #지정한 패키지 경로 내의 도메인 객체 mapping 시 패키지 경로 생략 가능
+configuration:
+ map-underscore-to-camel-case: true #camel-case 변환 
