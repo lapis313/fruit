@@ -18,5 +18,30 @@
     "name": "configuration.map-underscore-to-camel-case",
     "type": "java.lang.String",
     "description": "A description for 'configuration.map-underscore-to-camel-case'"
+  },
+  {
+    "name": "thymeleaf.prefix=classpath",
+    "type": "java.lang.String",
+    "description": "A description for 'thymeleaf.prefix=classpath'"
+  },
+  {
+    "name": "thymeleaf.suffix",
+    "type": "java.lang.String",
+    "description": "A description for 'thymeleaf.suffix'"
+  },
+  {
+    "name": "thymeleaf.check-template-location",
+    "type": "java.lang.String",
+    "description": "A description for 'thymeleaf.check-template-location'"
+  },
+  {
+    "name": "thymeleaf.cache",
+    "type": "java.lang.String",
+    "description": "A description for 'thymeleaf.cache'"
+  },
+  {
+    "name": "mvc.static-path-pattern",
+    "type": "java.lang.String",
+    "description": "A description for 'mvc.static-path-pattern'"
   }
 ]}

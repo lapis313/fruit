@@ -19,3 +19,11 @@ mybatis:
  type-aliases-package: package path #지정한 패키지 경로 내의 도메인 객체 mapping 시 패키지 경로 생략 가능
 configuration:
  map-underscore-to-camel-case: true #camel-case 변환 
+  
+thymeleaf:
+ prefix=classpath: templates/
+ suffix: .html
+ check-template-location: true
+ cache: false
+mvc:
+ static-path-pattern: "/static/**"
