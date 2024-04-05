@@ -12,7 +12,7 @@
 							  title
 							 ,regName
 							 ,regPw
-							 ,contents		
+							 ,contents
 							 )
 						VALUES(
 							   #{title}
@@ -21,4 +21,39 @@
 							  ,#{contents}
 							  )
 	</insert>
+	<select id="findAll" resultType="board">
+		SELECT id
+		      ,title
+		      ,regName
+		      ,regPw
+		      ,contents
+		      ,hits
+		      ,to_char(regDate, 'YYYY-MM-DD HH24:MI:SS') as regDate
+		  FROM BOARD_TBL
+	  ORDER BY regDate, hits DESC
+	</select>
+	<update id="updateHits" parameterType="Long">
+ 		UPDATE BOARD_TBL 
+		   SET hits = CASE WHEN hits IS NOT NULL THEN hits+1
+		   							   			 ELSE 0+1 
+					  END
+		 WHERE id = #{id}
+	</update>
+	<select id="findById" parameterType="Long" resultType="board">
+		SELECT id
+		      ,title
+		      ,regName
+		      ,regPw
+		      ,contents
+		      ,hits
+		      ,to_char(regDate, 'YYYY-MM-DD HH24:MI:SS') as regDate
+		  FROM BOARD_TBL
+		 WHERE id = #{id}		
+	</select>
+	<update id="update">
+		UPDATE BOARD_TBL
+		   SET title = #{title}
+		      ,contents = #{contents}
+		 WHERE id = #{id}		      
+	</update>
 </mapper>	

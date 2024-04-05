@@ -1,8 +1,12 @@
 package fruit.orange.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import fruit.orange.dto.BoardDTO;
@@ -23,7 +27,42 @@ public class BoardController {
 	public String save(@ModelAttribute BoardDTO boardDTO){//@ModelAttribute는 생략도 가능하다(생략해도 상관X)
 		System.out.println("boardDTO=" + boardDTO);
 		boardService.save(boardDTO);
-		return "index";
+		return "redirect:/board/list";
+	}
+	
+	@GetMapping("/board/list")
+	public String findAll(Model model){
+		List<BoardDTO> boardDTOList = boardService.findAll();
+		model.addAttribute("boardList", boardDTOList);
+		System.out.println("boardDTOList = " + boardDTOList);
+		return "/board/list";
+	}
+	
+	@GetMapping("/{id}")
+	public String findById(@PathVariable("id") Long id, Model model){
+		//조회수 처리
+		boardService.updateHits(id);
+		
+		//상세내용 가져오기
+		BoardDTO boardDTO = boardService.findById(id);
+		model.addAttribute("board", boardDTO);
+		System.out.println("boardDTO = " + boardDTO);
+		return "/board/detail";
+	}
+	
+	@GetMapping("/update/{id}")
+	public String update(@PathVariable("id") Long id, Model model){
+		BoardDTO boardDTO = boardService.findById(id);
+		model.addAttribute("board", boardDTO);
+		return "/board/update";
+	}
+	///update/${board.id}
+	@PostMapping("/update/{id}")
+	public String update(BoardDTO boardDTO, Model model){
+		boardService.update(boardDTO);
+		BoardDTO dto = boardService.findById(boardDTO.getId());
+		model.addAttribute("board",dto);
+		return "/board/detail";
 	}
 	
 }

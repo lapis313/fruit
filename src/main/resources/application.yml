@@ -8,14 +8,14 @@ spring:
   name: Spring-Boot-MyBatis
  datasource:
   driver-class-name: org.postgresql.Driver
-  #AWS RDS
-  url: jdbc:postgresql://{database-1.cx2420syi3rd.ap-northeast-2.rds.amazonaws.com}:5432/postgres
-  username: orange
-  password: orange123
   #로컬
-  #url: jdbc:postgresql://localhost:5432/postgres
-  #username: postgres
-  #password: orange123  
+  url: jdbc:postgresql://localhost:5432/postgres
+  username: postgres
+  password: orange123  
+  #AWS RDS
+  #url: jdbc:postgresql://{database-1.cx2420syi3rd.ap-northeast-2.rds.amazonaws.com}:5432/postgres
+  #username: orange
+  #password: orange123
 
 # mybatis
 mybatis: 
