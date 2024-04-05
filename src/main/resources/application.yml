@@ -27,3 +27,7 @@ thymeleaf:
  cache: false
 mvc:
  static-path-pattern: "/static/**"
+ 
+cloud:
+ compatibility-verifier:
+  enabled: false
