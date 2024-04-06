@@ -56,4 +56,7 @@
 		      ,contents = #{contents}
 		 WHERE id = #{id}		      
 	</update>
+	<delete id="delete" parameterType="Long">
+		DELETE FROM BOARD_TBL WHERE id=#{id}
+	</delete>
 </mapper>	

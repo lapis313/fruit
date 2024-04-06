@@ -56,13 +56,19 @@ public class BoardController {
 		model.addAttribute("board", boardDTO);
 		return "/board/update";
 	}
-	///update/${board.id}
+	
 	@PostMapping("/update/{id}")
 	public String update(BoardDTO boardDTO, Model model){
 		boardService.update(boardDTO);
 		BoardDTO dto = boardService.findById(boardDTO.getId());
 		model.addAttribute("board",dto);
 		return "/board/detail";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable("id") Long id){
+		boardService.delete(id);
+		return "redirect:/board/list";
 	}
 	
 }
