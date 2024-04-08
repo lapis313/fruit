@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class BoardRepository {
 	
 	private final SqlSessionTemplate sql;
+	
 	public void save(BoardDTO boardDTO) {
 		sql.insert("Board.save", boardDTO);
 	}
@@ -37,5 +38,5 @@ public class BoardRepository {
 	public void delete(Long id){
 		sql.delete("Board.delete",id);
 	}
-	
+
 }

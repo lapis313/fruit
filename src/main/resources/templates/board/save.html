@@ -1,9 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<meta charset="UTF-8" />
-		<title>저장</title>
+		<meta charset="utf-8">
+ 		<link href="../css/bootstrap.min.css" rel="stylesheet">
+ 		<style>
+ 			.container {
+ 					max-width: 560px;
+ 				}
+		</style>
 	</head>
+	<body>
+		<div class="container">
+ 			<div class="py-5 text-center">
+ 				<h2>게시글 등록 화면</h2>
+ 			</div>
+ 			<h4 class="mb-3">게시판</h4>
+ 			<form action="/board/save" method="post">
+ 				<div>
+ 					<label for="title">제목</label>
+ 					<input type="text" id="title" name="title" class="form-control" placeholder="제목을 입력하세요">
+				 </div>
+ 				<div>
+ 					<label for="regName">작성자</label>
+					 <input type="text" id="regName" name="regName" class="form-control" placeholder="이름을 입력하세요">
+ 				</div>
+ 				<div>
+ 					<label for="regPw">비밀번호</label>
+					 <input type="text" id="regPw" name="regPw" class="form-control" placeholder="비밀번호를 입력하세요">
+ 				</div>
+ 				<div>
+ 					<label for="contents">내용</label>
+					<textarea placeholder="내용을 입력하세요" id="contents" name="contents" class="form-control" ></textarea>
+ 				</div>
+ 				<hr class="my-4">
+ 					<div class="row">
+ 						<div class="col">
+ 							<input type="submit" class="w-100 btn btn-primary btn-lg"  value="등록">
+ 							<!-- <button class="w-100 btn btn-primary btn-lg" type="submit">글 등록</button> -->
+ 						</div>
+	 					<div class="col">
+	 						<a href="/board/list" class="w-100 btn btn-secondary btn-lg" type="button">취소</a>
+	 						<!-- <button class="w-100 btn btn-secondary btn-lg" onclick="location.href='board.html'" type="button">취소</button> -->
+						</div>
+ 					</div>
+ 			</form>
+		</div>
+	<!-- /container -->
+	</body>
+	<!-- 	
 	<body>
 		<form action="/board/save" method="post">
 			제목: <input type="text" name="title"><br>
@@ -19,4 +63,5 @@
 			<a href="/board/list" class="link_text">글목록</a>
 		</button>
 	</body>
+	 -->
 </html>

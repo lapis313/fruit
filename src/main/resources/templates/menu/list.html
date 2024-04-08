@@ -25,21 +25,19 @@
 			 				<th>제목</th>
 			 				<th>작성자</th>
 			 				<th>등록일</th>
+			 				<th>조회수</th>
 			 			</tr>
 		 			</thead>
 		 			<tbody>
-				 		<tr>
-				 			<td><a href="boardDtl.html">1</a></td>
-				 			<td><a href="boardDtl.html">테스트 게시판1</a></td>
-				 			<td>김길동</td>
-				 			<td>2024-04-03 HH:mm:ss</td>
-				 		</tr>
-				 		<tr>
-							<td><a href="boardDtl.html">2</a></td>
-						 	<td><a href="boardDtl.html">테스트 게시판2</a></td>
-		 					<td>이길동</td>
-		 					<td> 2024-04-03 HH:mm:ss</td>
-		 				</tr>
+						<tr th:each="board: ${boardList}">
+							<td th:text="${board.id}"></td>				
+							<td>					
+								<a th:text="${board.title}" th:href="@{|/${board.id}|}"></a>
+							</td>				
+							<td th:text="${board.regName}"></td>
+							<td th:text="${board.regDate}"></td>
+							<td th:text="${board.hits}"></td>		
+						</tr>
 		 			</tbody>
 		 		</table>
 			</div>
