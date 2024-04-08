@@ -17,10 +17,6 @@
  			<h4 class="mb-3">게시판</h4>
  			<form action="/board/save" method="post">
  				<div>
- 					<label for="title">제목</label>
- 					<input type="text" id="title" name="title" class="form-control" placeholder="제목을 입력하세요">
-				 </div>
- 				<div>
  					<label for="regName">작성자</label>
 					 <input type="text" id="regName" name="regName" class="form-control" placeholder="이름을 입력하세요">
  				</div>
@@ -28,6 +24,10 @@
  					<label for="regPw">비밀번호</label>
 					 <input type="text" id="regPw" name="regPw" class="form-control" placeholder="비밀번호를 입력하세요">
  				</div>
+ 				<div>
+ 					<label for="title">제목</label>
+ 					<input type="text" id="title" name="title" class="form-control" placeholder="제목을 입력하세요">
+				 </div>
  				<div>
  					<label for="contents">내용</label>
 					<textarea placeholder="내용을 입력하세요" id="contents" name="contents" class="form-control" ></textarea>
@@ -45,23 +45,5 @@
  					</div>
  			</form>
 		</div>
-	<!-- /container -->
 	</body>
-	<!-- 	
-	<body>
-		<form action="/board/save" method="post">
-			제목: <input type="text" name="title"><br>
-			작성자: <input type="text" name="regName"><br>
-			비밀번호: <input type="text" name="regPw"><br>
-			내용: <textarea name="contents" cols="30" rows="10"></textarea><br>
-			<input type="submit" value="작성">
-		</form>
-		<button>
-			<a href="/home" class="link_text">HOME</a>
-		</button>
-		<button>
-			<a href="/board/list" class="link_text">글목록</a>
-		</button>
-	</body>
-	 -->
 </html>

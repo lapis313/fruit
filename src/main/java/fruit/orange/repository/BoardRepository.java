@@ -37,6 +37,7 @@ public class BoardRepository {
 	
 	public void delete(Long id){
 		sql.delete("Board.delete",id);
+		//sql.delete("Board.alter",id);
 	}
 
 }

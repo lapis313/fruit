@@ -54,9 +54,15 @@
 		UPDATE BOARD_TBL
 		   SET title = #{title}
 		      ,contents = #{contents}
+		      ,regDate = now()
 		 WHERE id = #{id}		      
 	</update>
 	<delete id="delete" parameterType="Long">
 		DELETE FROM BOARD_TBL WHERE id=#{id}
 	</delete>
+	<!--
+	<delete id="alter" parameterType="Long">
+		ALTER SEQUENCE BOARD_TBL_ID_SEQ RESTART WITH #{id}
+	</delete>
+	-->
 </mapper>	

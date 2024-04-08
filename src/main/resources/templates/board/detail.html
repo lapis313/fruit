@@ -1,69 +1,44 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-	<meta charset="utf-8">
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
- 	<style>
- 		.container {
- 				max-width: 560px;
-	 		}
- 	</style>
+		<meta charset="utf-8">
+			<link th:href="@{/css/bootstrap.min.css}"
+					href="../css/bootstrap.min.css" rel="stylesheet">
+	 	<style>
+	 		.container {
+	 				max-width: 560px;
+		 		}
+	 	</style>
 	</head>
 	<body>
 	<div class="container">
 		<div class="py-5 text-center">
 			<h2>게시판 상세화면</h2>
 	 	</div>
-		<!-- 
-		<table>
-			<tr>
-			    <th>글번호</th>
-			    <td th:text="${board.id}"></td>
-			</tr>
-			<tr>
-			    <th>제목</th>
-			    <td th:text="${board.title}"></td>
-			</tr>
-			<tr>
-			    <th>작성자</th>
-			    <td th:text="${board.regName}"></td>
-			</tr>
-			<tr>
-			    <th>작성시간</th>
-			    <td th:text="${board.regDate}"></td>
-			</tr>
-			<tr>
-			    <th>조회수</th>
-			    <td th:text="${board.hits}"></td>
-			</tr>
-			<tr>
-			    <th>내용</th>
-			    <td th:text="${board.contents}"></td>
-			</tr>
-		</table>
-		 -->
-	 	
 	 	<div>
-	 		<label for="boardId">글번호</label>
-	 		<input type="text" id="id" name=" id" class="form-control" value="" readonly>	 		
+	 		<label for="id">글번호</label>
+	 		<input type="text" id="id" name="id" class="form-control" th:value="${board.id}" readonly>	 		
 	 	</div>
 	 	<div>
-	 		<label for="boardName">제목</label>
-	 		<input type="text" id="title" name="title" class="form-control" value="" readonly>
+	 		<label for="title">제목</label>
+	 		<input type="text" id="title" name="title" class="form-control" th:value="${board.title}" readonly>
+	 	</div>
+	 	<div>
+	 		<label for="contents">내용</label>
+	 		<textarea id="contents" name="contents" class="form-control" th:value="${board.contents}" readonly></textarea>
 	 	</div>
 	 	<div>
 	 		<label for="regName">작성자</label>
-	 		<input type="text" id=" regName" name="regName" class="form-control" value="" readonly>
+	 		<input type="text" id="regName" name="regName" class="form-control" th:value="${board.regName}" readonly>
 	 	</div>
 	 	<div>
 	 		<label for="regDate">등록일</label>
-	 		<input type="text" id="regDate" name="regDate" class="form-control" value="" readonly>
+	 		<input type="text" id="regDate" name="regDate" class="form-control" th:value="${board.regDate}" readonly>
 	 	</div>
 	 	<div>
 	 		<label for="hits">조회수</label>
-	 		<input type="text" id="hits" name="hits" class="form-control" value="" readonly>
+	 		<input type="text" id="hits" name="hits" class="form-control" th:value="${board.hits}" readonly>
 	 	</div>
-	 	
 	 	<hr class="my-4">
 	 	<div class="row">
 	 		<div class="col">
@@ -77,18 +52,23 @@
 	 		</div>
 	 	</div>
 	</div>	
-	<!-- /container -->
-	</body>
-	<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"> -->
-	<script>
+	<script th:inline="javascript">
 	    const listReq = () => {
+	    	console.log("목록 요청");
 	        location.href = "/board/list";
 	    }
 	    const updateReq = () => {
-	        location.href = `/update/[[${board.id}]]`;
+	    	console.log("수정 요청");
+	    	const id = [[${board.id}]];
+	        location.href = "/board/update/"+id;
+	        //location.href = `/board/update/[[${board.id}]]`;
 	    }
 	    const deleteReq = () => {
-	        location.href = `/delete/[[${board.id}]]`;
+	    	console.log("삭제 요청");
+	    	const id = [[${board.id}]];
+	        location.href = `/board/delete/[[${board.id}]]`;
+	        //location.href = "/board/delete/"+id;
 	    }
 	</script>	
+	</body>
 </html>
