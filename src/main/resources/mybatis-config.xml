@@ -4,9 +4,9 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="fruit.orange.dto.BoardDTO"	alias="board"/>
+		<typeAlias type="fruit.orange.dto.MenuDTO"  alias="menu"/>
 		<!-- 		
-		<typeAlias type="fruit.orange.dto."  		alias="member"/>
-		<typeAlias type="fruit.orange.dto."  		alias="detail"/>
+		<typeAlias type="fruit.orange.dto."  		alias="user"/>
  		-->	
 	</typeAliases>
 </configuration>

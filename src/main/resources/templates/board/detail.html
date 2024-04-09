@@ -13,7 +13,7 @@
 	<body>
 	<div class="container">
 		<div class="py-5 text-center">
-			<h2>게시판 상세화면</h2>
+			<h2>공지사항 상세화면</h2>
 	 	</div>
 	 	<div>
 	 		<label for="id">글번호</label>
@@ -25,7 +25,7 @@
 	 	</div>
 	 	<div>
 	 		<label for="contents">내용</label>
-	 		<textarea id="contents" name="contents" class="form-control" th:value="${board.contents}" readonly></textarea>
+	 		<textarea id="contents" name="contents" class="form-control" th:text="${board.contents}" th:value="${board.contents}" readonly></textarea>
 	 	</div>
 	 	<div>
 	 		<label for="regName">작성자</label>

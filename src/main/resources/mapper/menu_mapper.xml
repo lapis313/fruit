@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Menu">	
+	<select id="findAll" resultType="menu">
+		 WITH RECURSIVE TREE_MENU_TBL(id
+		 							 ,parent_id
+		 							 ,menu_cd
+		 							 ,menu_name
+		 							 ,menu_url
+		 							 ,list_order
+		 							 ,LEVEL
+		 							 ,PATH
+		 							 ,CYCLE) AS (SELECT mt.id
+		 							  				   ,mt.parent_id
+		 							  				   ,mt.menu_cd
+		 							  				   ,mt.menu_name 							  				   
+		 							  				   ,mt.menu_url
+		 							 				   ,mt.list_order
+		 							  				   ,0
+		 							  				   ,ARRAY [mt.id]
+		 							  				   ,FALSE
+		           						 		    FROM MENU_TBL AS mt
+		          								   WHERE mt.parent_id IS NULL
+		      								   UNION ALL
+		         							      SELECT mt.id
+		         							      	 	,mt.parent_id
+		         							      	 	,mt.menu_cd
+		         							      	 	,mt.menu_name
+		         							      	 	,mt.menu_url
+		         							      	 	,mt.list_order
+		         							      	 	,LEVEL+1
+		         							      	 	,PATH || mt.id
+		         							      	 	,mt.id = ANY(PATH)
+		           								    FROM MENU_TBL AS mt
+		           								        ,TREE_MENU_TBL AS tree
+		          								   WHERE mt.parent_id = tree.id
+		          								     AND NOT CYCLE)          					 
+						      SELECT id
+						            ,parent_id
+						            ,menu_cd
+						            ,menu_name
+						            ,menu_url
+						            ,list_order
+						            ,LEVEL
+						            ,PATH
+							    FROM TREE_MENU_TBL
+							ORDER BY list_order ASC
+	</select>
+</mapper>		
