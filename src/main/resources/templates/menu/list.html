@@ -1,19 +1,18 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="utf-8">
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link th:href="@{/css/bootstrap.min.css}"
+				href="../css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="container" style="max-width: 600px">
+		<div class="container" style="max-width: 800px">
 			<div class="py-5 text-center">
-		 		<h2>게시판 목록</h2>
+		 		<h2>메뉴 목록</h2>
 		 	</div>
 		 	<div class="row">
 		 		<div class="col">
-		 			<button class="btn btn-primary float-end" 
-		 				onclick="location.href='addForm.html'" type="button">글쓰기
-					</button>
+		 			<a href="/home" class="btn btn-primary float-front">HOME</a>
 				</div>
 		 	</div>
 		 	<hr class="my-4">
@@ -21,23 +20,33 @@
 			 	<table class="table">
 		 			<thead>
 			 			<tr>
-			 				<th>ID</th>
-			 				<th>제목</th>
-			 				<th>작성자</th>
-			 				<th>등록일</th>
-			 				<th>조회수</th>
+			 				<th>자신ID</th>
+			 				<th>부모ID</th>
+			 				<th>메뉴 코드</th>
+			 				<th>메뉴 이름</th>
+			 				<th>URL</th>
+			 				<th>메뉴 정렬</th>
+			 				<th>메뉴 레벨</th>
+			 				<th>메뉴 그룹</th>
 			 			</tr>
 		 			</thead>
 		 			<tbody>
-						<tr th:each="board: ${boardList}">
-							<td th:text="${board.id}"></td>				
+		 			<tr th:each="menu: ${menuList}">
+		 			</tr>
+		 			<!-- 
+						<tr th:each="menu: ${menuList}">
+							<td th:text="${menu.id}"></td>				
+							<td th:text="${menu.parent_id}"></td>				
 							<td>					
-								<a th:text="${board.title}" th:href="@{|/${board.id}|}"></a>
+								<a th:text="${menu.name}" th:href="@{|/${menu.id}|}"></a>
 							</td>				
-							<td th:text="${board.regName}"></td>
-							<td th:text="${board.regDate}"></td>
-							<td th:text="${board.hits}"></td>		
+							<td th:text="${menu.code}"></td>
+							<td th:text="${menu.menu_url}"></td>
+							<td th:text="${menu.list_order}"></td>		
+							<td th:text="${menu.level}"></td>
+							<td th:text="${menu.path}"></td>
 						</tr>
+						 -->
 		 			</tbody>
 		 		</table>
 			</div>
