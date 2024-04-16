@@ -36,3 +36,5 @@ mvc:
 cloud:
  compatibility-verifier:
   enabled: false
+
+#spring.mvc.view.prefix: "/WEB-INF/views/"

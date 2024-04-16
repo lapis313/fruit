@@ -38,8 +38,16 @@ dependencies {
 	//PostgreSQL 드라이버 추가
 	runtimeOnly 'org.postgresql:postgresql'
 	
-	// mybatis
+	//mybatis
 	implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '3.0.3'
+	
+	//JSON https://mvnrepository.com/artifact/org.json/json
+	implementation group: 'org.json', name: 'json', version: '20160810'
+	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+	implementation 'com.google.code.gson:gson:2.8.6'
+	
+	//@RequestBody로 JSON 정보 받기
+	implementation('org.springframework.boot:spring-boot-starter-web')
 }
 /*
 	// 스프링 부트 다운그레이드

@@ -18,4 +18,8 @@ public class MenuRepository {
 		return sql.selectList("Menu.findAll");
 	}
 	
+	public List<MenuDTO> findTree(){
+		return sql.selectList("Menu.findTree");
+	}
+	
 }
