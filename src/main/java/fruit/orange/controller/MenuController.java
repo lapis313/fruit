@@ -23,7 +23,7 @@ public class MenuController {
 		List<MenuDTO> menuDTOList = menuService.findAll();
 		model.addAttribute("menuList", menuDTOList);
 		System.out.println("menuDTOList = " + menuDTOList);
-		return "/menu/list";
+		return "menu/list";
 	}
 	
 }
