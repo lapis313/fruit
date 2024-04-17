@@ -17,11 +17,37 @@
 		 	</div>
 		 	<hr class="my-4">
 		 	<div>
+			 	<table class="table">
+		 			<thead>
+			 			<tr>
+			 				<th>자신ID</th>
+			 				<th>부모ID</th>
+			 				<th>메뉴 코드</th>
+			 				<th>메뉴 이름</th>
+			 				<th>URL</th>
+			 				<th>메뉴 정렬</th>
+			 			</tr>
+		 			</thead>
+		 			<tbody>
+		 			<tr th:each="menu: ${menuList}">
+		 			</tr>
 
+						<tr th:each="menu: ${menuList}">
+							<td th:text="${menu.id}"></td>
+							<td th:text="${menu.parent_id}"></td>
+							<td th:text="${menu.menu_cd}"></td>
+							<td th:text="${menu.menu_name}"></td>
+							<td th:text="${menu.menu_url}"></td>
+							<td th:text="${menu.list_order}"></td>
+							<!-- <td th:text="${menu.children}"></td> -->
+						</tr>
+
+		 			</tbody>
+		 		</table>
 			</div>
 		</div> <!-- /container -->
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<!-- <script type="text/javascript" src="/static/js/menu/list.js"></script> -->
-		<script th:src="@{/js/menu/list.js}"></script>
+		<!-- <script type="text/javascript" src="/js/menu/list.js"></script> -->
+		<!-- <script th:src="@{/js/menu/list.js}"></script> -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"  charset="UTF-8"></script>
 	</body>
 </html>

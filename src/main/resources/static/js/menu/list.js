@@ -1,7 +1,5 @@
-function init(){
-	
-	let params = {};
-	
+function getJSON(){
+	alert(111);
 	$.ajax({
 	  	 type: "GET"
 //	    , url: "http://localhost:8080/menu/list"
@@ -9,8 +7,11 @@ function init(){
 	    , contentType: 'application/json'
 	    , dataType : 'json'
 	    , async : false
-	    , data: JSON.stringify(params)
+	    //, data: JSON.stringify(data)
 	    , success: function(data) {
+			let test = JSON.parse(data);
+			console.log(data);
+			console.log(test);
 	        if (data.result == 'success') {
 	            //tagBtn.text(data.status);
 	            alert('성공');
@@ -21,5 +22,9 @@ function init(){
 	        alert('실패');
 	    }
 	});
-	
+	alert(222);
 }
+let a = 111;
+getJSON();
+console.log(a);
+alert(111);

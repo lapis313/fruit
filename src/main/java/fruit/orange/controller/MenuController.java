@@ -1,27 +1,23 @@
 package fruit.orange.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import fruit.orange.dto.MenuDTO;
 import fruit.orange.service.MenuService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@RestController
-//@RequestMapping("/menu")
+@Controller
+@RequestMapping("/menu")
 public class MenuController {
 	
 	private final MenuService menuService;
 	
-	
-	@GetMapping("/menu/list")
-	public String findAll() throws Exception {
-		String rtn = "";
-		rtn = menuService.findAll();
-		return rtn;
-	}
-	
-	/**
 	@GetMapping("/list")
 	public String findAll(Model model){
 		List<MenuDTO> menuDTOList = menuService.findAll();
@@ -29,6 +25,12 @@ public class MenuController {
 		System.out.println("menuDTOList = " + menuDTOList);
 		return "menu/list";
 	}
-	 * */
-	
+	/**
+	@GetMapping("/menu/list")
+	public String findTree() throws Exception {
+		String rtn = "";
+		rtn = menuService.findTree();
+		return rtn;
+	}
+	*/
 }

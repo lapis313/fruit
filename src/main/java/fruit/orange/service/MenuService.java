@@ -20,11 +20,11 @@ public class MenuService {
 	
 	private final MenuRepository menuRepository;
 	
-	public List<MenuDTO> findTree(){
-		return menuRepository.findTree();
+	public List<MenuDTO> findAll(){
+		return menuRepository.findAll();
 	}
 	
-	public String findAll(){
+	public String findTree(){
 		String jsonString = "";	//json으로 넘길 때
 		try {
 			List<MenuDTO> result = new ArrayList<MenuDTO>();	//데이터 그릇

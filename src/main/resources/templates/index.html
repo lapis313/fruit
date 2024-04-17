@@ -8,20 +8,21 @@
 	    <link rel="stylesheet" type="text/css" href="/css/main.css">
 	    <link rel="stylesheet" type="text/css" href="/css/footer.css">
 	    <link rel="stylesheet" type="text/css" href="/css/global.css">
+	    <script type="text/javascript" th:src="@{/js/menu/list.js}"></script>
 	</head>
   <body>
     <header>
       <div class="links">
-      	<!-- 
+      	<!--
 		<a href="/board/save" class="link_text">글쓰기</a>
         <a href="/board/list" class="link_text">글목록</a>
          -->
         <a href="/" class="link_text">로그인</a>
         <a href="/" class="link_text">회원가입</a>
-      </div>	  
+      </div>
       <a href="/"><img src="/image/naver_logo.png" class="img_logo"/></a>
       <form>
-        <!-- 웹접근성 향상을 위해 fieldset과 legend를 사용해주는 것이 좋습니다. 
+        <!-- 웹접근성 향상을 위해 fieldset과 legend를 사용해주는 것이 좋습니다.
               두 요소의 기본 디자인을 숨기는 방법은 CSS(.visually-hidden)를 참고해주세요-->
         <fieldset>
           <legend class="visually-hidden">검색</legend>
@@ -46,7 +47,7 @@
             <!--  -->
              <li><a href="/board/list">공지사항</a></li>
             <li><a href="/menu/list">메뉴</a></li>
-            <li><a href="/">증권</a></li>
+            <li><a href="/menu/list2">메뉴목록</a></li>
             <li><a href="/">부동산</a></li>
             <li><a href="/">지도</a></li>
             <li><a href="/">영화</a></li>
@@ -65,7 +66,8 @@
     </header>
     <main>
 		<!--999-->
-		<video class="center" src="/media/demon.mp4" width="56%" height="100%" autoplay muted controls>
+		<video class="center" src="/media/demon.mp4" width="56%" height="100%" controls>
+		<!-- <video class="center" src="/media/demon.mp4" width="56%" height="100%" autoplay muted controls> -->
 			<!--
 			<source src="/media/demon.mp4" type="video/mp4" />
 			<a href="/media/demon.mp4"></a>
