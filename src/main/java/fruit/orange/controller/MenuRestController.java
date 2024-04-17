@@ -14,11 +14,17 @@ public class MenuRestController {
 
 	private final MenuService menuService;
 
-	@GetMapping("/list2")
+	@GetMapping(value="/list2", produces="application/json")
+	public String findTree(){
+		String rtn = menuService.findTree();
+		return rtn;
+	}
+	/**
 	public String findTree() throws Exception {
+	//public String findTree(@RequestBody MenuDTO menuDTO) throws Exception {
 		String rtn = "";
 		rtn = menuService.findTree();
 		return rtn;
 	}
-
+	*/
 }

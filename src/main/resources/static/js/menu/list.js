@@ -1,22 +1,28 @@
 function getJSON(){
-	alert(111);
+	/**
+	 * JSON.parse -> 객체화
+	 * JSON.stringify -> 문자열로 형변환
+	 */
+	let data = {};
+
 	$.ajax({
 	  	 type: "GET"
-//	    , url: "http://localhost:8080/menu/list"
 	    , url: "/menu/list"
 	    , contentType: 'application/json'
-	    , dataType : 'json'
+	    , dataType : 'text'		//컨트로ㅑㄹ러에서 메소드의 리턴이 String이면 text로 받아야 한다(json으로하면 못받음)
+	    //, dataType : 'json'
 	    , async : false
-	    //, data: JSON.stringify(data)
+	    , data: JSON.parse(data)
 	    , success: function(data) {
-			let test = JSON.parse(data);
+			alert('성공');
 			console.log(data);
-			console.log(test);
+			/*
 	        if (data.result == 'success') {
 	            //tagBtn.text(data.status);
 	            alert('성공');
 	            //$("#menuList").append(html);
 	        }
+	        */
 	    }
 	    , error: function(e) {
 	        alert('실패');
