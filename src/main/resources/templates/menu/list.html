@@ -1,6 +1,4 @@
 <!DOCTYPE HTML>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="utf-8">
@@ -22,7 +20,8 @@
 
 			</div>
 		</div> <!-- /container -->
-		<script type="text/javascript" src="/static/js/menu/list.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<!-- <script type="text/javascript" src="/static/js/menu/list.js"></script> -->
+		<script th:src="@{/js/menu/list.js}"></script>
 	</body>
 </html>

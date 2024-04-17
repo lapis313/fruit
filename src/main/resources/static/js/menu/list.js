@@ -1,12 +1,15 @@
 function init(){
 	
+	let params = {};
+	
 	$.ajax({
-	  	 type: "POST"
-	    , url: "http://localhost:8080/menu/list"
-	    , contentType: "application/json"
-	    , data: JSON.stringify({
-			
-		})
+	  	 type: "GET"
+//	    , url: "http://localhost:8080/menu/list"
+	    , url: "/menu/list"
+	    , contentType: 'application/json'
+	    , dataType : 'json'
+	    , async : false
+	    , data: JSON.stringify(params)
 	    , success: function(data) {
 	        if (data.result == 'success') {
 	            //tagBtn.text(data.status);
@@ -20,23 +23,3 @@ function init(){
 	});
 	
 }
-
-
-
-/*
-	function test() {
-	    $.ajax({
-	        url: "<c:url value="/test" />",
-	        type: "post",
-	        data: JSON.stringify(obj),
-	        dataType: "json",
-	        contentType: "application/json",
-	        success: function(data) {
-	            alert("성공");
-	        },
-	        error: function(errorThrown) {
-	            alert(errorThrown.statusText);
-	        }
-	    });
-	}
-*/
