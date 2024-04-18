@@ -24,6 +24,10 @@ public class MenuService {
 		return menuRepository.findAll();
 	}
 
+	public List<MenuDTO> findTree(){
+		return menuRepository.findTree();
+	}
+
 	//String
 	public String findTreeStr(){
 		String jsonString = "";	//json으로 넘길 때
