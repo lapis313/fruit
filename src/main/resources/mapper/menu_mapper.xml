@@ -10,7 +10,7 @@
 		 		,menu_url
 		 		,list_order
 			FROM MENU_TBL
-		ORDER BY PARENT_ID ASC;
+		ORDER BY list_order ASC;
 	</select>
 	<select id="findTree" resultType="menu">
  WITH RECURSIVE TREE_MENU_TBL(id
