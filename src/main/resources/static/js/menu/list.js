@@ -29,7 +29,7 @@ function getJSON(){
 				///////////////
 				data.forEach(i =>{
 					//html += '<li><a class="menuLink" href="#">'+i+'</a></li>';
-					html += '<li><a class="menuLink" href="#">'+i.menu_name+'</a></li>';
+					html += '<li><a class="menuLink" href="/home">'+i.menu_name+'</a></li>';
 					})
 				///////////////
 				html += '</ul>'
