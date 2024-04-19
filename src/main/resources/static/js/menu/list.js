@@ -7,30 +7,39 @@ function getJSON(){
 
 	$.ajax({
 	  	 type: "GET"
-	    , url: "/menu/list"
+	    //, url: "/menu/list2-data"
+	    , url: "/menu/list2-allData"
 	    , contentType: 'application/json'
-	    , dataType : 'text'		//컨트로ㅑㄹ러에서 메소드의 리턴이 String이면 text로 받아야 한다(json으로하면 못받음)
-	    //, dataType : 'json'
+	    //, dataType : 'text'		//됨 //컨트롤러에서 메소드의 리턴이 String이면 text로 받아야 한다(json으로하면 못받음)
+	    , dataType : 'json'	//됨
 	    , async : false
-	    , data: JSON.parse(data)
+	    , data: data	//됨
 	    , success: function(data) {
-			alert('성공');
-			console.log(data);
-			/*
-	        if (data.result == 'success') {
-	            //tagBtn.text(data.status);
-	            alert('성공');
-	            //$("#menuList").append(html);
-	        }
-	        */
-	    }
+			//alert('성공');
+			console.log('성공');
+			//console.log(data);
+			data.forEach(index =>{
+				console.log(index);
+			})
+			/********************************************************************************************* */
+
+			let html = '';
+			html += '<nav class="topMenu" role="navigation">'
+				html += '<ul class="navlist">'
+				///////////////
+				data.forEach(i =>{
+					//html += '<li><a class="menuLink" href="#">'+i+'</a></li>';
+					html += '<li><a class="menuLink" href="/home">'+i.menu_name+'</a></li>';
+					})
+				///////////////
+				html += '</ul>'
+			html += '</nav>'
+			$('#menu-list').append(html);
+            /********************************************************************************************* */
+		   }
 	    , error: function(e) {
 	        alert('실패');
 	    }
 	});
-	alert(222);
 }
-let a = 111;
 getJSON();
-console.log(a);
-alert(111);

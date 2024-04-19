@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Menu">	
+<mapper namespace="Menu">
 	<select id="findAll" resultType="menu">
 		  SELECT id
 		 		,parent_id
@@ -10,7 +10,7 @@
 		 		,menu_url
 		 		,list_order
 			FROM MENU_TBL
-		ORDER BY PARENT_ID ASC;
+		ORDER BY list_order ASC;
 	</select>
 	<select id="findTree" resultType="menu">
  WITH RECURSIVE TREE_MENU_TBL(id
@@ -24,14 +24,14 @@
  							 ,CYCLE) AS (SELECT mt.id
  							  				   ,mt.parent_id
  							  				   ,mt.menu_cd
- 							  				   ,mt.menu_name 							  				   
+ 							  				   ,mt.menu_name
  							  				   ,mt.menu_url
  							 				   ,mt.list_order
  							  				   ,0
  							  				   ,ARRAY [mt.id]
  							  				   ,FALSE
            						 		    FROM MENU_TBL AS mt
-          								   WHERE mt.parent_id IS NULL OR mt.parent_id = 0 
+          								   WHERE mt.parent_id IS NULL OR mt.parent_id = 0
       								   UNION ALL
          							      SELECT mt.id
          							      	 	,mt.parent_id
@@ -45,11 +45,11 @@
            								    FROM MENU_TBL AS mt
            								         JOIN TREE_MENU_TBL AS tree ON mt.parent_id = tree.id
           								   WHERE mt.parent_id = tree.id
-          								     AND NOT CYCLE)          					 
+          								     AND NOT CYCLE)
 				      SELECT id
 				            ,parent_id
 				            ,menu_cd
-				            ,LPAD('', LEVEL) || menu_name AS MENU_NAME
+				            ,REPLACE(LPAD('', LEVEL) || menu_name,' ','ㄴ')AS MENU_NAME
 				            ,menu_url
 				            ,list_order
 				            ,LEVEL
@@ -57,4 +57,4 @@
 					    FROM TREE_MENU_TBL
 					ORDER BY parent_id, list_order ASC;
 	</select>
-</mapper>		
+</mapper>

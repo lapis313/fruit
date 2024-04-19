@@ -17,14 +17,19 @@ import lombok.ToString;
 @RequiredArgsConstructor
 @ToString
 public class MenuService {
-	
+
 	private final MenuRepository menuRepository;
-	
+
 	public List<MenuDTO> findAll(){
 		return menuRepository.findAll();
 	}
-	
-	public String findTree(){
+
+	public List<MenuDTO> findTree(){
+		return menuRepository.findTree();
+	}
+
+	//String
+	public String findTreeStr(){
 		String jsonString = "";	//json으로 넘길 때
 		try {
 			List<MenuDTO> result = new ArrayList<MenuDTO>();	//데이터 그릇
@@ -41,16 +46,42 @@ public class MenuService {
 			}
 			TreeMake tree = new TreeMake();
 			List<MenuDTO> data = tree.formatTree(result);
-			
+
 			//json으로 넘길 때
 			ObjectMapper objectMapper = new ObjectMapper();		//json
 			jsonString = objectMapper.writeValueAsString(data);	//json
-			
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-			
+
 		return jsonString;	//json
 	}
-	
+
+	//ArrayList
+	public List<MenuDTO> findTreeList(){
+		List<MenuDTO> jsonList = new ArrayList<MenuDTO>();
+		try {
+			List<MenuDTO> result = new ArrayList<MenuDTO>();	//데이터 그릇
+			List<MenuDTO> list = menuRepository.findAll();		//DB데이터
+			int i = 0;
+			for(MenuDTO menuDTO : list) {
+			//for(int i=0; i<list.size(); i++) {
+				MenuDTO node = list.get(i);
+				node.setId(node.getId());
+				node.setParent_id(node.getParent_id());
+				node.setMenu_name(node.getMenu_name());
+				result.add(node);
+				i++;
+			}
+			TreeMake tree = new TreeMake();
+			jsonList = tree.formatTree(result);
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+		return jsonList;	//json
+	}
+
 }
